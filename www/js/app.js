@@ -29,7 +29,7 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
     console.log('CARDS CTRL');
     
     $http
-        .get("/restaurants/get")
+        .get("/places/get")
         .success(function (response) {
             $("#loader").hide();
         
