@@ -17,12 +17,12 @@ app.all('*', function(req, res, next) {
 });
 
 // TODO :  Just add anything in the controllers folder
-require('lib/controllers/restaurants-controller.js')(app);
+require('lib/controllers/places-controller.js')(app);
 
 // TODO : Load all the moongose stuff (MongoDb)
 require('lib/storages/mongo/mongodb-initializer.js')();
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (process.env.PORT || 8000));
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'));
