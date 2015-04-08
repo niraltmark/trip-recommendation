@@ -1,0 +1,25 @@
+{
+  "name": "restaurant-roulette",
+  "version": "0.1.2",
+  "description": "A node.js app for getting open tables",
+  "scripts": {
+    "start": "node --harmony index.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x",
+    "phridge": "~1.0.x",
+    "rootpath": "~0.1.x",
+    "when": "^3.7.2",
+    "promise":"~6.1.x",
+    "mongoose":"~4.0.x"
+  },
+  "engines": {
+    "node": "0.11.x"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
+}
