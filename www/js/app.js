@@ -31,7 +31,6 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
     $http
         .get("/places/get")
         .success(function (response) {
-            $("#loader").hide();
         
             $scope.cards = Array.prototype.slice.call(response, 0);
         
@@ -44,16 +43,17 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
                 newCard.id = Math.random();
                 $scope.cards.push(angular.extend({}, newCard));
             };
+        
+         
+            $scope.cardSwipedLeft = function(index) {
+                console.log('LEFT SWIPE');
+            };
+        
+            $scope.cardSwipedRight = function(index) {
+                console.log('RIGHT SWIPE');
+            };
         });
-})
+    
+  }
+)
 
-.controller('CardCtrl', function($scope, TDCardDelegate) {
-  $scope.cardSwipedLeft = function(index) {
-    console.log('LEFT SWIPE');
-    $scope.addCard();
-  };
-  $scope.cardSwipedRight = function(index) {
-    console.log('RIGHT SWIPE');
-    $scope.addCard();
-  };
-});
