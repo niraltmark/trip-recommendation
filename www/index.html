@@ -119,6 +119,22 @@ td-card img {
     color:#DD3745;
     font-family: 'Poiret One', cursive;
 }
+        
+        .item-input {
+            background-color: #DD3745;
+            border: 0px;
+            margin: 0px auto;
+            color: white;
+        }
+        
+        .input-label {color:white}
+        
+        .bar.bar-assertive.bar-footer {
+            background-image: none;
+            background-color: #DD3745;
+        }
+        
+        input[type="text"] {color:white; text-align: center;color:white}
       </style>
   </head>
   <body ng-app="starter" no-scroll>
@@ -137,24 +153,12 @@ td-card img {
           </div>
         </td-card>
       </td-cards>
-       
-        <ion-footer-bar align-title="left" class="bar-assertive">
-<!--
-  <div class="buttons">
-    <button class="button">Left Button</button>
-  </div>
--->
-    <label class="item item-input">
-      <span class="input-label">Username</span>
-      <input type="text">
-    </label>
-<!--
-  <h1 class="title">Title!</h1>
-  <div class="buttons" ng-click="doSomething()">
-    <button class="button">Right Button</button>
-  </div>
--->
-</ion-footer-bar>
+        
+        <ion-footer-bar class="bar-assertive">
+            <label class="item item-input">
+              <input type="text" ng-model="username" ng-init="username='Type your name...'" />
+            </label>
+        </ion-footer-bar>
     </ion-pane>
   </body>
 </html>

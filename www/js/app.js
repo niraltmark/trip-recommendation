@@ -28,6 +28,8 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
 .controller('CardsCtrl', function($scope, $http, TDCardDelegate) {
     console.log('CARDS CTRL');
     
+    $scope.something = {};
+    
     $http
         .get("/places/get")
         .success(function (response) {
@@ -46,11 +48,11 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
         
          
             $scope.cardSwipedLeft = function(index) {
-                console.log('LEFT SWIPE');
+                console.log('LEFT SWIPE ' + $scope.username);
             };
         
             $scope.cardSwipedRight = function(index) {
-                console.log('RIGHT SWIPE');
+                console.log('RIGHT SWIPE ' + $scope.username);
             };
         });
     
