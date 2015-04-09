@@ -7,7 +7,7 @@ var express = require('express');
 var app = express();
 
 app.use(express.static('www'));
-//app.use(require('body-parser').json());
+app.use(require('body-parser').json());
 
 // CORS (Cross-Origin Resource Sharing) headers to support Cross-site HTTP requests
 app.all('*', function(req, res, next) {

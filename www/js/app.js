@@ -48,10 +48,33 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
         
          
             $scope.cardSwipedLeft = function(index) {
+                var card = $scope.cards[index];
+                
+                $http
+                    .post("/places/choose", {
+                        place_name: card.name,
+                        place_id: card.id,
+                        username: $scope.username,
+                        choice: "dislike"
+                    })
+                    .success(function (response) {});
+                
                 console.log('LEFT SWIPE ' + $scope.username);
             };
         
             $scope.cardSwipedRight = function(index) {
+               
+                var card = $scope.cards[index];
+
+                $http
+                    .post("/places/choose", {
+                        place_name: card.name,
+                        place_id: card._id,
+                        username: $scope.username,
+                        choice: "like"
+                    })
+                    .success(function (response) {});
+                
                 console.log('RIGHT SWIPE ' + $scope.username);
             };
         });
