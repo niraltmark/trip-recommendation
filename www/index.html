@@ -134,15 +134,20 @@ td-card img {
             background-color: #DD3745;
         }
         
-        input[type="text"] {color:white; text-align: center;color:white}
+        input[type="text"] {color:white; text-align: center;}
+        
+        .popup-body input[type="text"] { color:black }
       </style>
   </head>
-  <body ng-app="starter" no-scroll>
+  <body ng-app="starter" no-scroll ng-controller="PopupCtrl" ng-init="showPopup()">
+      <script id="popup-template.html" type="text/ng-template">
+        <input ng-model="data.username" type="text" placeholder="Username">
+      </script>
+         
     <ion-pane ng-controller="CardsCtrl">
       <ion-header-bar class="bar-default">
         <h1 class="title">Yoni's trip to Amsterdam</h1>
       </ion-header-bar>
-        
       <td-cards>
         <td-card ng-repeat="card in cards" on-transition-left="cardSwipedLeft($index)" on-destroy="cardDestroyed($index)" on-transition-right="cardSwipedRight($index)" on-partial-swipe="cardPartialSwipe(amt)" class="card-{{$index}}" style="background-image: url({{card.image}}); background-repeat: no-repeat; background-size:cover">
           <div class="image">
@@ -156,7 +161,7 @@ td-card img {
         
         <ion-footer-bar class="bar-assertive">
             <label class="item item-input">
-              <input type="text" ng-model="username" ng-init="username='Type your name...'" ng-click="username=''" />
+              <input type="text" ng-model="data.username" ng-init="username='Type your name...'" ng-click="username=''" />
             </label>
         </ion-footer-bar>
     </ion-pane>

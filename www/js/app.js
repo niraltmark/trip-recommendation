@@ -54,7 +54,7 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
                     .post("/places/choose", {
                         place_name: card.name,
                         place_id: card.id,
-                        username: $scope.username,
+                        username: $scope.data.username,
                         choice: "dislike"
                     })
                     .success(function (response) {});
@@ -70,7 +70,7 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
                     .post("/places/choose", {
                         place_name: card.name,
                         place_id: card._id,
-                        username: $scope.username,
+                        username: $scope.data.username,
                         choice: "like"
                     })
                     .success(function (response) {});
@@ -82,3 +82,37 @@ angular.module('starter', ['ionic', 'ionic.contrib.ui.tinderCards'])
   }
 )
 
+
+.controller('PopupCtrl',function($scope, $ionicPopup, $timeout) {
+
+ // Triggered on a button click, or some other target
+ $scope.showPopup = function() {
+   $scope.data = {}
+
+   // An elaborate, custom popup
+   var myPopup = $ionicPopup.show({
+     template: '<input type="text" ng-model="data.username">',
+     title: 'Enter your name',
+     subTitle: "''It ain't what they call you, <br />it's what you answer to...''",
+     scope: $scope,
+     buttons: [
+       {
+         text: '<b>Save</b>',
+         type: 'button-positive',
+         onTap: function(e) {
+           if (!$scope.data.username) {
+             //don't allow the user to close unless he enters wifi password
+             e.preventDefault();
+           } else {
+             return $scope.data.username;
+           }
+         }
+       },
+     ]
+   });
+   myPopup.then(function(res) {
+     console.log('Tapped!', res);
+   });
+  };
+  
+})
